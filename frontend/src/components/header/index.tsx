@@ -2,7 +2,12 @@ import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 
-import { useAudio, useAuth, useChatData, useConfig } from '@chainlit/react-client';
+import {
+  useAudio,
+  useAuth,
+  useChatData,
+  useConfig
+} from '@chainlit/react-client';
 
 import AudioPresence from '@/components/AudioPresence';
 import ButtonLink from '@/components/ButtonLink';
@@ -20,6 +25,7 @@ import { chatSettingsSidebarOpenState } from '@/state/project';
 
 import ApiKeys from './ApiKeys';
 import ChatProfiles from './ChatProfiles';
+import { ModelSelector } from './ModelSelector';
 import NewChatButton from './NewChat';
 import ReadmeButton from './Readme';
 import ShareButton from './Share';
@@ -55,7 +61,11 @@ const Header = memo(() => {
       id="header"
     >
       <div className="flex items-center">
-        {historyEnabled && !sidebarHidden ? !sidebarOpen ? <SidebarTrigger /> : null : null}
+        {historyEnabled && !sidebarHidden ? (
+          !sidebarOpen ? (
+            <SidebarTrigger />
+          ) : null
+        ) : null}
         {historyEnabled && !sidebarHidden ? (
           !sidebarOpen ? (
             <NewChatButton navigate={navigate} />
@@ -84,6 +94,7 @@ const Header = memo(() => {
         <ShareButton />
         <ReadmeButton />
         <ApiKeys />
+        <ModelSelector />
         {links &&
           links.map((link, index) => (
             <ButtonLink
