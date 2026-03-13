@@ -35,7 +35,7 @@ export function ModelSelector() {
   return (
     <Select value={selected} onValueChange={handleChange}>
       <SelectTrigger
-        className="h-8 w-[130px] text-xs border-border bg-background text-muted-foreground hover:text-foreground transition-colors"
+        className="h-7 w-[120px] text-xs border-0 bg-transparent text-muted-foreground hover:text-foreground hover:bg-muted rounded-full transition-colors px-2"
         id="model-selector"
       >
         <SelectValue />

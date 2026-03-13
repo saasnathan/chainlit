@@ -25,7 +25,6 @@ import { chatSettingsSidebarOpenState } from '@/state/project';
 
 import ApiKeys from './ApiKeys';
 import ChatProfiles from './ChatProfiles';
-import { ModelSelector } from './ModelSelector';
 import NewChatButton from './NewChat';
 import ReadmeButton from './Readme';
 import ShareButton from './Share';
@@ -94,7 +93,6 @@ const Header = memo(() => {
         <ShareButton />
         <ReadmeButton />
         <ApiKeys />
-        <ModelSelector />
         {links &&
           links.map((link, index) => (
             <ButtonLink

@@ -8,17 +8,17 @@ import {
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { v4 as uuidv4 } from 'uuid';
 
+import type { IMode, IModeOption } from '@chainlit/react-client';
 import {
   FileSpec,
   IStep,
   commandsState,
+  modesState,
   useAuth,
   useChatData,
   useChatInteract,
   useConfig
 } from '@chainlit/react-client';
-import type { IMode, IModeOption } from '@chainlit/react-client';
-import { modesState } from '@chainlit/react-client';
 
 import { Settings } from '@/components/icons/Settings';
 import { Button } from '@/components/ui/button';
@@ -34,6 +34,7 @@ import {
   persistentCommandState
 } from 'state/chat';
 
+import { ModelSelector } from '../../header/ModelSelector';
 import { Attachments } from './Attachments';
 import CommandButtons from './CommandButtons';
 import CommandButton from './CommandPopoverButton';
@@ -295,6 +296,7 @@ export default function MessageComposer({
               <Settings className="!size-6" />
             </Button>
           )}
+          <ModelSelector />
           <McpButton disabled={disabled} />
           {modes.map((mode) => (
             <ModePicker
